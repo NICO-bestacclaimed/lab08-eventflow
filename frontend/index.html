@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventFlow | Logística Inteligente</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Iconos de Phosphor Icons para un diseño más limpio -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="top-bar">
+            <div class="logo">
+                <i class="ph-fill ph-waves"></i>
+                <h1>EventFlow</h1>
+            </div>
+            <span class="badge-status">Sistema En Línea</span>
+        </header>
+
+        <div id="alert-box" class="alert-box hidden"></div>
+
+        <main class="dashboard-grid">
+            <!-- Sección de Formularios -->
+            <section class="forms-section">
+                <div class="glass-card">
+                    <h2><i class="ph ph-map-pin"></i> Nuevo Espacio</h2>
+                    <form id="form-espacio" class="custom-form">
+                        <div class="input-group">
+                            <input type="text" id="espacio-nombre" required>
+                            <label>Nombre (Ej. Auditorio A)</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="espacio-ubicacion" required>
+                            <label>Ubicación</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="number" id="espacio-aforo" required>
+                            <label>Aforo Máximo</label>
+                        </div>
+                        <button type="submit" class="btn-primary">Registrar Espacio</button>
+                    </form>
+                </div>
+
+                <div class="glass-card">
+                    <h2><i class="ph ph-speaker-hifi"></i> Nuevo Recurso</h2>
+                    <form id="form-recurso" class="custom-form">
+                        <div class="input-group">
+                            <input type="text" id="recurso-nombre" required>
+                            <label>Nombre del Equipo</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="recurso-codigo" required>
+                            <label>Código de Inventario</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="number" step="0.01" id="recurso-costo" required>
+                            <label>Costo de Alquiler/Mantenimiento</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="number" id="recurso-stock" required>
+                            <label>Stock Disponible</label>
+                        </div>
+                        <div class="input-group select-group">
+                            <select id="recurso-espacio" required>
+                                <option value="" disabled selected>Selecciona el espacio de destino...</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-secondary">Asignar Recurso</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Sección de Listados -->
+            <section class="data-section">
+                <div class="glass-card list-card">
+                    <h2>Espacios Registrados</h2>
+                    <div id="lista-espacios" class="data-list">
+                        <!-- Cargando por JS -->
+                    </div>
+                </div>
+
+                <div class="glass-card list-card">
+                    <h2>Inventario Técnico</h2>
+                    <div id="lista-recursos" class="data-list">
+                        <!-- Cargando por JS -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
